@@ -77,12 +77,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>My Database Connection Works</h1>
-        <ul>
-          {/* {this.state.recipes.map(recipe => {
-            return <li>{recipe}</li>;
-          })} */}
-        </ul>
         <h1>My Recipe Book</h1>
         <form action="" className="recipeEntry">
           <input

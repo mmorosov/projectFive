@@ -32,7 +32,8 @@ class App extends Component {
           name: recipes[key].name,
           author: recipes[key].author,
           type: recipes[key].type,
-          instructions: recipes[key].instructions
+          instructions: recipes[key].instructions,
+          likes: 0
         });
       }
 
@@ -43,37 +44,12 @@ class App extends Component {
     });
   }
 
-  // removeRecipe(id) {
-  //   const recipeRef = firebase.database().ref(`/recipes/${id}`);
-  //   recipeRef.remove();
-  // }
-
   render() {
     return (
       <div className="App">
         <h1>My Recipe Book</h1>
         <Form />
         <ShowRecipes display={this.state.recipes} recipeId={this.state.recipes.id}/>
-        {/* <section>
-          <div>
-            <ul>
-              {this.state.recipes.map(recipe => {
-                return (
-                  <li key={recipe.id}>
-                    <h3>{recipe.name}</h3>
-                    <p>{recipe.author}</p>
-                    <p>{recipe.type}</p>
-                    <p>{recipe.instructions}</p>
-                    <button onClick={() => this.removeRecipe(recipe.id)}>
-                      Remove Recipe
-                    </button>
-                    <hr />
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        </section> */}
       </div>
     );
   }

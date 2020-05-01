@@ -77,7 +77,7 @@ class Form extends Component {
                         <option value="">Pick One</option>
                         <option value="salad">Salad</option>
                         <option value="soup">Soup</option>
-                        <option value="desert">Desert</option>
+                        <option value="dessert">Dessert</option>
                     </select>
                     <textarea
                         name="instructions"

@@ -7,16 +7,18 @@ const ShowRecipes = (props) => {
       <section>
         <div>
           <ul>
-            {props.display.map(recipe => {
+            {props.display.map((recipe, i) => {
               return (
-                  <RecipeMod 
-                  id={recipe.id}
-                  name={recipe.name}
-                  author={recipe.author}
-                  type={recipe.type}
-                  instructions={recipe.instructions}
-                  deleteRecipe={props.removeButton}
+                <li key={i}>
+                  <RecipeMod
+                    id={recipe.id}
+                    name={recipe.name}
+                    author={recipe.author}
+                    type={recipe.type}
+                    instructions={recipe.instructions}
+                    deleteRecipe={props.removeButton}
                   />
+                </li>
               );
             })}
           </ul>

@@ -8,7 +8,8 @@ class Form extends Component {
         name: "",
         author: "",
         type: "",
-        instructions: ""
+        instructions: "",
+        likes: ""
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -35,7 +36,8 @@ class Form extends Component {
             name: this.state.name,
             author: this.state.author,
             type: this.state.type,
-            instructions: this.state.instructions
+            instructions: this.state.instructions,
+            likes: 0
         };
 
         // Push the recipe object into the database.

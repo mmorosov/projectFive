@@ -17,6 +17,7 @@ const ShowRecipes = (props) => {
                     type={recipe.type}
                     instructions={recipe.instructions}
                     deleteRecipe={props.removeButton}
+                    likes={recipe.likes}
                   />
                 </li>
               );

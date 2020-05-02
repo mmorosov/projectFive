@@ -5,12 +5,12 @@ class LikeCounter extends Component {
     constructor(props){
         super(props);
         this.state = {
-            likes: 0
+            likes: props.likes
         }
     }
 
     // Create function that executes on button click, updating the like value in the recipe child object on database and in DOM.
-    
+
     addLikes = () => {
 
         let newAmount = this.state.likes + 1;
@@ -30,7 +30,7 @@ class LikeCounter extends Component {
 
     render(){
         return(
-            <button onClick={this.addLikes} id={this.props.buttonId} className="likes">::Heart:: {this.state.likes}</button>
+            <button onClick={this.addLikes} id={this.props.buttonId} className="likes">::Heart:: {this.props.likes}</button>
         )
     }
 }

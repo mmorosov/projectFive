@@ -55,7 +55,7 @@ const RecipeMod = (props) => {
             <button onClick={removeRecipe}>
             Remove Recipe
             </button>
-            <LikeCounter buttonId={props.id}/>
+            <LikeCounter likes={props.likes} buttonId={props.id}/>
             <hr />
         </React.Fragment>
     );

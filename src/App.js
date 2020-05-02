@@ -33,7 +33,7 @@ class App extends Component {
           author: recipes[key].author,
           type: recipes[key].type,
           instructions: recipes[key].instructions,
-          likes: 0
+          likes: parseInt(recipes[key].likes)
         });
       }
 

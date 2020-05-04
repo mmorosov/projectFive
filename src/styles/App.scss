@@ -1,30 +1,228 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&display=swap');
+
+// Global styling
+
+html {
+    font-size: 62.5%;
 }
 
+main {
+  width: 100%;
+  text-align: center;
+  background-color: #FFFCF9;
+  font-family: 'Patrick Hand SC', cursive;
+  font-size: 2rem;
+}
+
+h1, h3, h4, span {
+  font-family: 'Berkshire Swash', cursive;
+  margin: 0;
+}
+
+
+span {
+  display: block;  
+  font-size: 2.5rem;
+  line-height: 4rem;
+  color: #EF476F;
+}
+
+.recipeInfo p span {
+  display: inline;
+  font-size: 2rem;
+}
+
+h1, .bigIcon {
+  font-size: 5rem;
+  line-height: 6rem;
+  padding-bottom: 10px;
+}
+
+
+h3 {
+  font-size: 3rem;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+header {
+  height: 100vh;
+}
+
+.wrapper {
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+nav {
+  width: 100vw;
+  height: 10vh;
+  position: fixed;
+  bottom: 0;
+  background-color: #FFFCF9;
+}
+
+.links {
+  margin: 20px 0;
+  background-color: #EF476F;
+}
+
+.element {
+  background-color: #EF476F;
+  width: 100vw;
+  height: 5vh;
+  position: fixed;
+  top: 0;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.smallIcon {
+  margin: 0 10px;
+}
+
+// Header styling
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.introText {
+  width: 50%;
+  line-height: 3.2rem;
+}
+
+// Form styling
 .recipeEntry {
+  height: 100vh;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
+  margin: 100px auto;
+
+  .question {
+    margin: 10px auto;
+  }
   
-  input, textarea {
-    width: 50%;
+  input, textarea, select, option {
+    font-family: 'Patrick Hand SC', cursive;
+    font-size: 1.5rem;
+    margin: 0 10px;
+  }
+
+  textarea {
+    width: 100%;
   }
 }
 
+// Recipe list styling
+ul.recipe {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 0;
+}
 
-// @media (prefers-reduced-motion: no-preference) {
-//   .App-logo {
-//     animation: App-logo-spin infinite 20s linear;
-//   }
-// }
+.recipe li {
+  width: calc(50% - 20px);
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px;
+  text-align: left;
+}
 
-// @keyframes App-logo-spin {
-//   from {
-//     transform: rotate(0deg);
-//   }
-//   to {
-//     transform: rotate(360deg);
-//   }
-// }
+.recipeImage{
+  width: 40%;
+}
+
+.recipeInfo {
+  width: calc(60% - 50px);
+  border: 5px solid black;
+  padding: 20px;
+
+  p {
+    margin: 10px 0;
+  }
+}
+
+.recipeImage img {
+  margin-left: 0;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px
+}
+
+// Button styline
+button, .button {
+  background-color:  #FFD166;
+  color: black;
+  margin: 10px;
+  padding: 5px 10px;
+  font-size: 2rem;
+  font-family: 'Patrick Hand SC', cursive;
+}
+
+button {
+  text-decoration: underline;
+}
+
+button:hover, button:focus,
+.button:hover, button:focus {
+  background-color: black;
+  color: #FFD166;
+}
+
+@media(max-width: 960px) {
+  .recipe li {
+    flex-direction: column;
+  }
+
+  .recipeInfo {
+    width: calc(100% - 50px);
+  }
+
+  .recipeImage{
+    width: 100%;
+  }
+
+  .recipeImage img {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 20px;
+  }
+}
+
+@media(max-width: 600px) {
+  ul.recipe {
+    flex-direction: column;
+  }
+
+  .recipe li {
+    width: calc(100% - 20px);
+  }
+
+  .introText {
+    width: 50%;
+    line-height: 2.2rem;
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    span {
+      font-size: 1.8rem;
+      line-height: 2.2rem;
+    }
+  }
+}

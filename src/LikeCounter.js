@@ -29,9 +29,16 @@ class LikeCounter extends Component {
 
 
     render(){
-        return(
-            <button onClick={this.addLikes} id={this.props.buttonId} className="likes">::Heart:: {this.props.likes}</button>
-        )
+        return (
+            <button
+                onClick={this.addLikes}
+                id={this.props.buttonId}
+                className="likes"
+            >
+                {" "}
+                ❤️ {this.props.likes}
+            </button>
+            );
     }
 }
 

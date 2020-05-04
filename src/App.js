@@ -6,6 +6,10 @@ import './styles/App.scss';
 import Form from './Form';
 import ShowRecipes from "./ShowRecipes";
 
+// get our fontawesome imports
+import { faFeatherAlt } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 class App extends Component {
   // Set up Constructor and call Super to establish current state of input properties, as well as an empty recipes array.
   constructor(props) {
@@ -33,6 +37,7 @@ class App extends Component {
           author: recipes[key].author,
           type: recipes[key].type,
           instructions: recipes[key].instructions,
+          time: recipes[key].time,
           likes: parseInt(recipes[key].likes)
         });
       }
@@ -46,11 +51,38 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <h1>My Recipe Book</h1>
+      <main>
+        <nav>
+          <div className="links">
+            <a href="/#recipeList" class="button">
+              Check Out All Recipes
+            </a>
+            <a href="/#newRecipe" class="button">
+              Add a New Recipe
+            </a>
+          </div>
+        </nav>
+        <header className="wrapper">
+          <div className="introText">
+            <FontAwesomeIcon icon={faFeatherAlt} className="bigIcon" />
+            <h1>My Cookbook</h1>
+            <h2>
+              Record the secret family recipe{" "}
+              <span>(that your Grandma wrote out by hand)</span> in a database,
+              so that you never forget it!
+            </h2>
+            <a href="/#newRecipe" class="button">
+              Get Started
+            </a>
+          </div>
+          <div className="element"></div>
+        </header>
         <Form />
-        <ShowRecipes display={this.state.recipes} recipeId={this.state.recipes.id}/>
-      </div>
+        <ShowRecipes
+          display={this.state.recipes}
+          recipeId={this.state.recipes.id}
+        />
+      </main>
     );
   }
 }

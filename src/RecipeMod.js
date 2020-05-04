@@ -34,31 +34,50 @@ const RecipeMod = (props) => {
     let imageUrl;
 
     const setImage = () => {
-        foodTypeImage.map((foodType, i) => {
-            console.log(foodType)
-            console.log(props.type)
+        foodTypeImage.map((foodType) => {
             if (foodType.type === props.type) {
                 imageUrl = foodType.url;
             }
         })
     }
 
-    console.log(setImage())
+    setImage();
 
     return (
-        <React.Fragment>
-            <img src={ imageUrl } width="200px" alt="salad"></img>
-            <h3>{props.name}</h3>
-            <p>{props.author}</p>
-            <p>{props.type}</p>
-            <p>{props.instructions}</p>
-            <button onClick={removeRecipe}>
+      <React.Fragment>
+        <div className="recipeImage">
+          <img src={imageUrl} alt="salad"></img>
+        </div>
+        <div className="recipeInfo">
+          <h3>{props.name}</h3>
+          <p>
+            <span>Chef: </span>
+            {props.author}
+          </p>
+          <p>
+            <span>Dish type:</span> {props.type}
+          </p>
+          <p>
+            <span>Prep time:</span> {props.time}
+          </p>
+          <p>
+            <span>Prep Info:</span>
+            {props.instructions}
+          </p>
+          <button
+            onClick={e => {
+              if (
+                window.confirm("Are you sure you wish to delete this recipe?")
+              )
+                removeRecipe(e);
+            }}
+          >
             Remove Recipe
-            </button>
-            <LikeCounter likes={props.likes} buttonId={props.id}/>
-            <hr />
-        </React.Fragment>
+          </button>
+          <LikeCounter likes={props.likes} buttonId={props.id} />
+        </div>
+      </React.Fragment>
     );
-}
+    }
 
 export default RecipeMod;

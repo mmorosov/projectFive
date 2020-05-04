@@ -60,14 +60,14 @@ header {
 
 nav {
   width: 100vw;
-  height: 10vh;
+  height: 5vh;
   position: fixed;
   bottom: 0;
-  background-color: #FFFCF9;
+  background-color: #EF476F;
 }
 
 .links {
-  margin: 20px 0;
+  // margin: 10px 0;
   background-color: #EF476F;
 }
 
@@ -102,6 +102,10 @@ header {
   line-height: 3.2rem;
 }
 
+.scrollPrompt {
+  margin-top: 75px;
+}
+
 // Form styling
 .recipeEntry {
   height: 100vh;
@@ -133,6 +137,7 @@ ul.recipe {
   flex-wrap: wrap;
   margin: 0 auto;
   padding: 0;
+  margin-bottom: 50px;
 }
 
 .recipe li {
@@ -163,7 +168,7 @@ ul.recipe {
   border-bottom-left-radius: 20px
 }
 
-// Button styline
+// Button styling
 button, .button {
   background-color:  #FFD166;
   color: black;
@@ -182,6 +187,12 @@ button:hover, button:focus,
   background-color: black;
   color: #FFD166;
 }
+
+.likes {
+  text-decoration: none;
+}
+
+// Responsive styling
 
 @media(max-width: 960px) {
   .recipe li {

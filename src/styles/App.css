@@ -55,14 +55,13 @@ header {
 
 nav {
   width: 100vw;
-  height: 10vh;
+  height: 5vh;
   position: fixed;
   bottom: 0;
-  background-color: #FFFCF9;
+  background-color: #EF476F;
 }
 
 .links {
-  margin: 20px 0;
   background-color: #EF476F;
 }
 
@@ -111,6 +110,10 @@ header {
   line-height: 3.2rem;
 }
 
+.scrollPrompt {
+  margin-top: 75px;
+}
+
 .recipeEntry {
   height: 100vh;
   display: -webkit-box;
@@ -151,6 +154,7 @@ ul.recipe {
       flex-wrap: wrap;
   margin: 0 auto;
   padding: 0;
+  margin-bottom: 50px;
 }
 
 .recipe li {
@@ -201,6 +205,10 @@ button:hover, button:focus,
 .button:hover, button:focus {
   background-color: black;
   color: #FFD166;
+}
+
+.likes {
+  text-decoration: none;
 }
 
 @media (max-width: 960px) {

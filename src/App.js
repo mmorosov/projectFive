@@ -5,6 +5,7 @@ import './styles/App.scss';
 
 import Form from './Form';
 import ShowRecipes from "./ShowRecipes";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 // get our fontawesome imports
 import { faFeatherAlt } from "@fortawesome/free-solid-svg-icons";
@@ -53,15 +54,23 @@ class App extends Component {
     return (
       <main>
         <nav>
+          {/* The bit below was not inititally meant to be a navigation, but after some thought it made sense to make it so. When I am refining the project, I would change the div to a ul, and add li to links. */}
           <div className="links">
-            <a href="/#recipeList" class="button">
+            <a
+              href="https://mmorosov.github.io/projectFive/#recipeList"
+              class="button"
+            >
               Check Out All Recipes
             </a>
-            <a href="/#newRecipe" class="button">
+            <a
+              href="https://mmorosov.github.io/projectFive/#newRecipe"
+              class="button"
+            >
               Add a New Recipe
             </a>
           </div>
         </nav>
+        {/* Introduction header */}
         <header className="wrapper">
           <div className="introText">
             <FontAwesomeIcon icon={faFeatherAlt} className="bigIcon" />
@@ -71,13 +80,22 @@ class App extends Component {
               <span>(that your Grandma wrote out by hand)</span> in a database,
               so that you never forget it!
             </h2>
-            <a href="/#newRecipe" class="button">
+            <a
+              href="https://mmorosov.github.io/projectFive/#newRecipe"
+              class="button"
+            >
               Get Started
             </a>
+            <p className="scrollPrompt">
+              Scroll down to save your culinary secrets!
+              <FontAwesomeIcon icon={faChevronDown} className="smallIcon" />
+            </p>
           </div>
           <div className="element"></div>
         </header>
+        {/* Recipe form for the user to fill out */}
         <Form />
+        {/* Show recipes that have been entered into the database. */}
         <ShowRecipes
           display={this.state.recipes}
           recipeId={this.state.recipes.id}

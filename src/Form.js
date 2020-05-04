@@ -3,9 +3,14 @@
 
     import { faFeatherAlt } from "@fortawesome/free-solid-svg-icons";
     import { faUserEdit } from "@fortawesome/free-solid-svg-icons";
+    import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+    import { faClock } from "@fortawesome/free-solid-svg-icons";
+    import { faHamburger } from "@fortawesome/free-solid-svg-icons";
+    import { faFileAlt } from "@fortawesome/free-solid-svg-icons";
     import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
     class Form extends Component {
+    // Setting up the state for all of the inputs!
     constructor() {
         super();
         this.state = {
@@ -16,6 +21,8 @@
         time: "",
         likes: ""
         };
+
+        // Binding 'this' to the event listeners, so that arrow functions work correctly.
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -103,7 +110,7 @@
                 </div>
                 <div className="question">
                     <label id="time">
-                    <FontAwesomeIcon icon={faUserEdit} className="smallIcon" />
+                    <FontAwesomeIcon icon={faClock} className="smallIcon" />
                     Prep time:
                     </label>
                     <input
@@ -117,7 +124,8 @@
                     ></input>
                 </div>
                 <div className="question">
-                    <label id="recipeType">What type of recipe is it?</label>
+                    <FontAwesomeIcon icon={faHamburger} className="smallIcon" />
+                    <label id="recipeType">What type of food is it?</label>
                     <select
                     name="type"
                     id="recipeType"
@@ -132,7 +140,8 @@
                     </select>
                 </div>
                 <div className="question">
-                    <label id="instructions">How do you make it?</label>
+                    <FontAwesomeIcon icon={faFileAlt} className="smallIcon" />
+                    <label id="instructions">Enter instructions on how to make it below:</label>
                     <textarea
                     name="instructions"
                     id="instructions"
@@ -142,16 +151,15 @@
                     required
                     ></textarea>
                 </div>
+                {/* Submit button will only activate if all fields have been filled */}
                 <button type="submit" disabled={!isEnabled}>
                     Add Recipe
                 </button>
-                <a href="/#recipeList" class="button">
-                    Check It Out!
-                </a>
+                <p className="scrollPrompt">Scroll down to see your Cookbook!<FontAwesomeIcon icon={faChevronDown} className="smallIcon" /></p>
                 </form>
                 </section>
-        );
-    }
+            );
+        }
     }
 
     export default Form;

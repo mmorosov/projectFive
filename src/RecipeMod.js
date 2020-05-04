@@ -6,11 +6,13 @@ import soupImg from './assets/soup.jpg'
 import dessertImg from './assets/dessert.jpg'
 
 const RecipeMod = (props) => {
+    // Function to remove recipe from DOM and database on click
     const removeRecipe = () => {
         const recipeRef = firebase.database().ref(`/recipes/${props.id}`);
         recipeRef.remove();
     }
 
+    // Image array for assigning an image to recipe type
     const foodTypeImage = [
         {
             type: 'salad',
@@ -29,7 +31,7 @@ const RecipeMod = (props) => {
         }
     ]
 
-    // loop over foodTypeImage, if property name === props.type, show image
+    // Map over foodTypeImage, if property name === props.type, show image
 
     let imageUrl;
 
@@ -38,45 +40,47 @@ const RecipeMod = (props) => {
             if (foodType.type === props.type) {
                 imageUrl = foodType.url;
             }
+            return null;
         })
     }
 
     setImage();
 
     return (
-      <React.Fragment>
-        <div className="recipeImage">
-          <img src={imageUrl} alt="salad"></img>
-        </div>
-        <div className="recipeInfo">
-          <h3>{props.name}</h3>
-          <p>
-            <span>Chef: </span>
-            {props.author}
-          </p>
-          <p>
-            <span>Dish type:</span> {props.type}
-          </p>
-          <p>
-            <span>Prep time:</span> {props.time}
-          </p>
-          <p>
-            <span>Prep Info:</span>
-            {props.instructions}
-          </p>
-          <button
-            onClick={e => {
-              if (
-                window.confirm("Are you sure you wish to delete this recipe?")
-              )
-                removeRecipe(e);
-            }}
-          >
-            Remove Recipe
-          </button>
-          <LikeCounter likes={props.likes} buttonId={props.id} />
-        </div>
-      </React.Fragment>
+        <React.Fragment>
+            {/* Individual recipe modules */}
+            <div className="recipeImage">
+            <img src={imageUrl} alt="salad"></img>
+            </div>
+            <div className="recipeInfo">
+            <h3>{props.name}</h3>
+            <p>
+                <span>Chef: </span>
+                {props.author}
+            </p>
+            <p>
+                <span>Dish type:</span> {props.type}
+            </p>
+            <p>
+                <span>Prep time:</span> {props.time}
+            </p>
+            <p>
+                <span>Prep Info:</span>
+                {props.instructions}
+            </p>
+            <button
+                onClick={e => {
+                if (
+                    window.confirm("Are you sure you wish to delete this recipe?")
+                )
+                    removeRecipe(e);
+                }}
+            >
+                Remove Recipe
+            </button>
+            <LikeCounter likes={props.likes} buttonId={props.id} />
+            </div>
+        </React.Fragment>
     );
     }
 
